@@ -3,7 +3,7 @@
 import { Grid } from "@/widgets/grid";
 import { FC, Suspense } from "react";
 
-export const MainPage: FC = () => {
+const MainPage: FC = () => {
 
   return (
     <div>
@@ -15,3 +15,5 @@ export const MainPage: FC = () => {
     </div>
   );
 };
+
+export default MainPage;
