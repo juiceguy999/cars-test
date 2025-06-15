@@ -1,3 +1,5 @@
+import { Car } from "@/entities/car/model";
+
 export interface ICardProps {
-  car: any;
+  car: Car;
 }

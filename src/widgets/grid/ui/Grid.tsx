@@ -1,28 +1,9 @@
 import { FC, useEffect, useState } from "react";
-import Image from "next/image";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { Card } from "@/shared/ui";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-
-interface PaginationMeta {
-  count: number;
-  first_page_link: string;
-  from: number;
-  last_page: number;
-  last_page_link: string;
-  limit: number;
-  page: number;
-  prev_page_link?: string;
-  next_page_link?: string;
-  to: number;
-  total: number;
-  total_no_filters: number;
-}
-
-interface ApiResponse {
-  data: any[];
-  meta: PaginationMeta;
-}
+import { PaginationMeta, ApiResponse } from "../type";
+import { Car } from "@/entities/car/model";
 
 type SortOrder = 'unsorted' | 'asc' | 'desc';
 
@@ -31,7 +12,7 @@ export const Grid: FC = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const [cars, setCars] = useState<any[]>([]);
+  const [cars, setCars] = useState<Car[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [meta, setMeta] = useState<PaginationMeta | null>(null);
@@ -84,7 +65,6 @@ export const Grid: FC = () => {
 
       setCars(data.data);
       setMeta(data.meta);
-      console.log(data)
     } catch(error) {
       console.log(error);
     } finally {
