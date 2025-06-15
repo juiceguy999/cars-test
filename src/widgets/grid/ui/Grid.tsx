@@ -1,3 +1,4 @@
+'use client';
 import { FC, useEffect, useState } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { Card } from "@/shared/ui";
